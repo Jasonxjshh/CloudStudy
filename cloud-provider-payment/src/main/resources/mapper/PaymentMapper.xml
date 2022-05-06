@@ -2,8 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.Jason.dao.PaymentDao">
 
-    <insert id="create" parameterType="com.Jason.entity.Payment">
-        insert into payment(serial) values (#{id});
+    <insert id="create" parameterType="com.Jason.entity.Payment" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into payment (serial) values (#{serial});
     </insert>
 
     <resultMap id="BaseResultMap" type="com.Jason.entity.Payment">
