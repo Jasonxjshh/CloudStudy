@@ -1,9 +1,6 @@
 server:
-  port: 8001
-
+  port: 7001
 spring:
-  application:
-    name: cloud-provider-payment-service
   datasource:
     url: jdbc:mysql://121.199.73.186:3306/SpringCloudStudy?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
     username: root
@@ -11,7 +8,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
       #Spring Boot 默认是不注入这些属性值的，需要自己绑定
-      #druid 数据源专有配置
+    #druid 数据源专有配置
     initialSize: 5
     minIdle: 5
     maxActive: 20
@@ -23,14 +20,16 @@ spring:
     testOnBorrow: false
     testOnReturn: false
     poolPreparedStatements: true
-
 eureka:
+  instance:
+    hostname: localhost
+  #这个是euraka暴漏给提供者和消费者服务发现注册用的
   client:
-    register-with-eureka: true
-    fetch-registry: true
     service-url:
-      defaultZone: http://localhost:7001/eureka
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+    #是否注册到eureka上注册中心是不用把自己上床到自己的provider
+    register-with-eureka: false
+    #是否需要到eureka上拉去服务路径--consumer需要
+    fetch-registry: false
 
-mybatis:
-  mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.Jason.entity
+
