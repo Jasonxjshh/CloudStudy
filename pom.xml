@@ -11,6 +11,7 @@
     <modules>
         <module>cloud-provider-payment</module>
         <module>cloud-consumer-order</module>
+        <module>cloud-api-common</module>
     </modules>
 
     <properties>
@@ -82,6 +83,11 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.Jason</groupId>
+                <artifactId>cloud-api-common</artifactId>
+                <version>1.0-SNAPSHOT</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
