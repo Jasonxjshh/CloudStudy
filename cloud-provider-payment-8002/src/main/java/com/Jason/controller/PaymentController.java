@@ -1,13 +1,16 @@
 package com.Jason.controller;
 
 
+import com.Jason.service.PaymentService;
 import com.Jason.entity.CommonResult;
 import com.Jason.entity.Payment;
-import com.Jason.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @Author Jason
