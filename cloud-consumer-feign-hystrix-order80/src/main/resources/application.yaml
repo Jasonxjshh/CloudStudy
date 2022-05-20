@@ -1,0 +1,20 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-consumer-order-service
+  datasource:
+    url: jdbc:mysql://121.199.73.186:3306/SpringCloudStudy?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: xxjjss123321
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001:7001/eureka
+#      defaultZone: http://eureka7001:7001/eureka,http://eureka7002:7002/eureka
+

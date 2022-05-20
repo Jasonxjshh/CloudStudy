@@ -7,26 +7,16 @@ spring:
     password: xxjjss123321
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-    #Spring Boot 默认是不注入这些属性值的，需要自己绑定
-    #druid 数据源专有配置
-    initialSize: 5
-    minIdle: 5
-    maxActive: 20
-    maxWait: 60000
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 300000
-    validationQuery: SELECT 1 FROM DUAL
-    testWhileIdle: true
-    testOnBorrow: false
-    testOnReturn: false
-    poolPreparedStatements: true
 eureka:
   instance:
     hostname: eureka7001
   #这个是euraka暴漏给提供者和消费者服务发现注册用的
   client:
     service-url:
-      defaultZone: http://eureka7002:7002/eureka
+#      单机版：演示Hystrix
+      defaultZone: http://eureka7001:7001/eureka
+#      集群版
+#      defaultZone: http://eureka7002:7002/eureka
     #是否注册到eureka上注册中心是不用把自己上床到自己的provider
     register-with-eureka: false
     #是否需要到eureka上拉去服务路径--consumer需要
